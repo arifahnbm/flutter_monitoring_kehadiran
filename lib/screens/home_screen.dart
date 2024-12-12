@@ -10,7 +10,9 @@ class HomeScreen extends StatelessWidget {
     var students = provider.students;
 
     return Scaffold(
-      appBar: AppBar(title: Text('Presensi Siswa')),
+      appBar: AppBar(
+        title: Text('Presensi Siswa'),
+      ),
       body: ListView.builder(
         itemCount: students.length,
         itemBuilder: (context, index) {
@@ -20,8 +22,7 @@ class HomeScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: provider.students.isEmpty ? null : provider.saveAttendance,
         child: Icon(Icons.save),
-        backgroundColor:
-            provider.students.isEmpty ? Colors.grey : Colors.blue,
+        backgroundColor: provider.students.isEmpty ? Colors.grey : Colors.blue,
       ),
     );
   }

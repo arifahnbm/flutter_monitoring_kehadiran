@@ -22,16 +22,16 @@ class AttendanceRecord {
 class AttendanceProvider with ChangeNotifier {
   // Menggunakan data statis sesuai permintaan
   List<Student> _students = [
-    Student(name: 'Ali', isPresent: false),
-    Student(name: 'Budi', isPresent: false),
-    Student(name: 'Citra', isPresent: false),
-    Student(name: 'Arifah', isPresent: false),
-    Student(name: 'Mona', isPresent: false),
-    Student(name: 'Fitria', isPresent: false),
-    Student(name: 'Annisa', isPresent: false),
-    Student(name: 'Arfira', isPresent: false),
-    Student(name: 'Anggita', isPresent: false),
-    Student(name: 'Syifa', isPresent: false),
+    Student(name: 'Ali'),
+    Student(name: 'Budi'),
+    Student(name: 'Citra'),
+    Student(name: 'Arifah'),
+    Student(name: 'Mona'),
+    Student(name: 'Fitria'),
+    Student(name: 'Annisa'),
+    Student(name: 'Arfira'),
+    Student(name: 'Anggita'),
+    Student(name: 'Syifa'),
   ];
   
   List<AttendanceRecord> _history = [];

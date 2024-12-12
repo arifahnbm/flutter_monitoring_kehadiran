@@ -9,7 +9,9 @@ class HistoryScreen extends StatelessWidget {
     var history = provider.history;
 
     return Scaffold(
-      appBar: AppBar(title: Text('Riwayat Kehadiran')),
+      appBar: AppBar(
+        title: Text('Riwayat Kehadiran'),
+      ),
       body: history.isEmpty
           ? Center(child: Text('Belum ada riwayat'))
           : ListView.builder(
