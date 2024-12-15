@@ -20,10 +20,44 @@ class HomeScreen extends StatelessWidget {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: provider.students.isEmpty ? null : provider.saveAttendance,
-        child: Icon(Icons.save),
-        backgroundColor: provider.students.isEmpty ? Colors.grey : Colors.blue,
-      ),
+          child: Icon(Icons.save),
+          backgroundColor:
+              provider.students.isEmpty ? Colors.grey : Colors.blue,
+          onPressed: () {
+            final currentDate = DateTime.now().toString().split(' ')[0];
+            int presentCount = students.where((s) => s.isPresent).length;
+            int absentCount = students.length - presentCount;
+            showDialog(
+                context: context,
+                builder: (ctx) => AlertDialog(
+                      title: Text('Simpan Kehadiran'),
+                      content: 
+                         Column(
+                           children: [
+                             Text('Tanggal: $currentDate'),
+                              SizedBox(height: 20,),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Hadir: $presentCount'), Text('Tidak Hadir: $absentCount')
+                                ],
+                              ),
+                              SizedBox(height: 20,),
+                              Row(
+                                final anyStudents
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(students), Text('Tidak Hadir: $absentCount')
+                                ],
+                              )
+                           ],
+                         ),
+                         
+                      ),
+                    );
+            
+            provider.students.isEmpty ? null : provider.saveAttendance();
+          }),
     );
   }
 }
